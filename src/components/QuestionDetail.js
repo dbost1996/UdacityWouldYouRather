@@ -4,8 +4,5 @@ import QuestionDetailPage from "./QuestionDetailPage";
 
 export default function QuestionDetail(){
     let params = useParams();
-    return <QuestionDetailPage id={params.id}></QuestionDetailPage>;
+    return <QuestionDetailPage id={params.id}/>;
 }
-
-
-

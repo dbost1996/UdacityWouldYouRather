@@ -19,12 +19,12 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Routes>
-                <Route exact path="/" element={<App />} >
-                    <Route exact path="login" element={<LoginLocation/>}/>
-                    <Route exact path="" element={<Dashboard />} />
-                    <Route exact path="leaderboard" element={<Leaderboard />} />
+                <Route  path="/" element={<App />} >
+                    <Route  path="login" element={<LoginLocation/>}/>
+                    <Route  path="" element={<Dashboard />} />
+                    <Route  path="leaderboard" element={<Leaderboard />} />
                     <Route path="question/:id" element={<QuestionDetail />} />
-                    <Route exact path="add" element={<NewQuestion />} />
+                    <Route  path="add" element={<NewQuestion />} />
                     <Route element={<Error/>} />
                 </Route>
             </Routes>

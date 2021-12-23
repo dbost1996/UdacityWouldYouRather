@@ -2,12 +2,12 @@ import React from 'react'
 
 export default function Error(){
     return<div>
-                <div>
+                <h1 className="error">
                     404
-                </div>
-                <div>
+                </h1>
+                <h2 className="error">
                     Error: This page does not exist!
-                </div>
+                </h2>
     </div>;
 }
 

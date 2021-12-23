@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import LoadingBar from 'react-redux-loading'
 import Navigation from "./Navigation";
 import LoginLocation from "./LoginLocation";
 
@@ -18,7 +17,6 @@ class App extends Component {
                 <div>
                     <div>
                         <Navigation/>
-                        <LoadingBar />
                     </div>
                 </div>
             )
@@ -29,7 +27,6 @@ class App extends Component {
                 </div>
                 )
         }
-
     }
 }
 

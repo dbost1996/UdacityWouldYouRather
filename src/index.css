@@ -184,6 +184,22 @@
     color: black;
 }
 
+#image {
+    margin-left: 70%;
+}
+
+#login_button {
+    width: 200px;
+    height: 50px;
+}
+
+/*error page*/
+
+.error {
+    justify-content: center;
+    display: flex;
+}
+
 
 
 

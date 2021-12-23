@@ -22,7 +22,7 @@ export function handleInitialData () {
 
 export function handleSaveQuestion (optionOneText, optionTwoText, authedUser) {
     return (dispatch) => {
-        dispatch(showLoading());
+        dispatch(showLoading())
         return _saveQuestion({
             author: authedUser,
             optionOneText,
@@ -31,7 +31,7 @@ export function handleSaveQuestion (optionOneText, optionTwoText, authedUser) {
             .then((question) => {
                 dispatch(saveQuestion(question));
                 dispatch(saveUserQuestion(question));
-                dispatch(hideLoading());
+                dispatch(hideLoading())
             })
     }
 }

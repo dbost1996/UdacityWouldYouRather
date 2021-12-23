@@ -60,13 +60,9 @@ function mapStateToProps ({authedUser, users, questions}, { id }) {
     let score = numberOfQuestions.map(function (num, idx) {
         return num + numberOfAnswers[idx];
     });
-
     let completeScore = userIds.map(function (x, i) {
         return { id: x, score: score[i] }
     });
-
-
-
     const question = questions[id]
 
     return {

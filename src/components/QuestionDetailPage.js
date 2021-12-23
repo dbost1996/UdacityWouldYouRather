@@ -11,7 +11,6 @@ class QuestionDetailPage extends Component {
         id: PropTypes.string.isRequired,
     }
 
-
     handleQuestionAnswerClick = (authedUser, qid, answer) => {
         this.props.dispatch(handleQuestionAnswer(authedUser, qid, answer));
     }
@@ -32,6 +31,7 @@ class QuestionDetailPage extends Component {
                     <div className="container">
                         <div className="header-img" ><img
                             className="pollImage"
+                            id="image"
                             src={users[question.author].avatarURL}
                             alt={`Avatar of ${user.name}`}
                         /></div>
@@ -60,6 +60,7 @@ class QuestionDetailPage extends Component {
                     alignItems: "center"}}>
                     <img
                         className="pollImage"
+
                         src={users[question.author].avatarURL}
                         alt={`Avatar of ${user.name}`}
                     />
@@ -98,7 +99,6 @@ class QuestionDetailPage extends Component {
 
 function mapStateToProps ({authedUser, users, questions},  { id }) {
     const question = questions[id.slice(2)]
-
     const user = users[authedUser];
     const answeredIds = user ? Object.keys(user['answers']) : [];
     const answeredQuestions = [];

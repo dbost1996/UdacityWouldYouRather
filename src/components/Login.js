@@ -4,6 +4,7 @@ import {clearAuthedUser, setAuthedUser} from "../actions/authedUser";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import '../index.css'
+import {handleInitialData} from "../actions/shared";
 
 class Login extends Component {
 
@@ -29,11 +30,12 @@ class Login extends Component {
     }
 
     login = function(){
+        this.props.dispatch(handleInitialData())
         this.props.dispatch(setAuthedUser(this.state.selectedUser));
     }
 
-
     render() {
+
         const { users } = this.props
         return (
             <div className='container'>
@@ -50,7 +52,7 @@ class Login extends Component {
                     })}
                 </select>
                 <Link className='link welcome_login' to={ this.props.lastLocation.pathname !== '/login' ? this.props.lastLocation.pathname : '/'} >
-                    <button disabled={this.state.selectedUser === null} onClick={(event) => this.login(event)}>
+                    <button id="login_button" disabled={this.state.selectedUser === null} onClick={(event) => this.login(event)}>
                         Login
                     </button>
                 </Link>

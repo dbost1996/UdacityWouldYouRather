@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Questions from "./Questions";
 import {Tabs} from "react-bootstrap";
 import {Tab} from "bootstrap";
+import LoadingBar from "react-redux-loading";
 
 class Dashboard extends Component {
 
@@ -23,6 +24,7 @@ class Dashboard extends Component {
         unansweredQuestion.sort(this.compareTimestamps)
         return (
             <div>
+                <LoadingBar />
                 <h2>Hello {user.name}</h2>
             <Tabs defaultActiveKey="unanswered" className="mb-3">
                 <Tab eventKey="unanswered" title="Unanswered polls">
