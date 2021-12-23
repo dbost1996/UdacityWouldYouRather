@@ -4,7 +4,7 @@ This application was developed as the second part of a React training by Udacity
 
 # Running the application
 
-- Run this to clone the repository: ``
+- Run this to clone the repository: `https://github.com/dbost1996/UdacityWouldYouRather.git`
 - In the project run `npm install`
 - Start the application by running `npm start` and navigate to http://localhost:3000/
 

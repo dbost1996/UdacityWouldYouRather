@@ -17,3 +17,12 @@ export function saveUserAnswer (userAnswer) {
         answer: userAnswer.answer
     }
 }
+
+export const SAVE_USER_QUESTION = 'SAVE_USER_QUESTION'
+
+export function saveUserQuestion (question) {
+    return {
+        type: SAVE_USER_QUESTION,
+        question
+    }
+}

@@ -1,5 +1,5 @@
 import {_getUsers, _getQuestions, _saveQuestionAnswer, _saveQuestion} from '../utils/_DATA'
-import { receiveUsers, saveUserAnswer } from './users'
+import {receiveUsers, saveUserAnswer, saveUserQuestion} from './users'
 import {receiveQuestions, saveQuestion, saveQuestionAnswer} from './questions'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
@@ -30,6 +30,7 @@ export function handleSaveQuestion (optionOneText, optionTwoText, authedUser) {
         })
             .then((question) => {
                 dispatch(saveQuestion(question));
+                dispatch(saveUserQuestion(question));
                 dispatch(hideLoading());
             })
     }

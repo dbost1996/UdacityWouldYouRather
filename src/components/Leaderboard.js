@@ -26,6 +26,11 @@ class Leaderboard extends Component {
                     {completeScore.map((element) => (
                         <li key={element.id}>
                             <div>
+                                <img
+                                    style={{width: 50, height: 50, borderRadius: 400/ 2}}
+                                    src={users[element.id].avatarURL}
+                                    alt={`Avatar of ${users[element.id].name}`}
+                                />
                                 {users[element.id].name}
                             </div>
                             <div>

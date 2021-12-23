@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from "prop-types";
 import {handleQuestionAnswer} from "../actions/shared";
 import '../index.css';
+import Error from "./Error";
 
 
 class QuestionDetailPage extends Component {
@@ -16,39 +17,37 @@ class QuestionDetailPage extends Component {
     }
 
     render() {
-        const { authedUser, user, questions, question, answered } = this.props
+        const { authedUser, user, users, question, answered } = this.props
+        if (!question) {
+            return <Error/>
+        }
         const numVotesOpOne = question.optionOne.votes.length;
         const numVotesOpTwo = question.optionTwo.votes.length;
         const optionOnePercent = 100 / (numVotesOpOne + numVotesOpTwo) * numVotesOpOne;
         const optionTwoPercent = 100 / (numVotesOpOne + numVotesOpTwo) * numVotesOpTwo;
 
-
-
-        if (!question) {
-            return <p>This Question doesn't exist {this.props.id.slice(1)}</p>
-        }
         if (answered){
             return (
                 <div>
                     <div className="container">
-                        <headerImg><img
+                        <div className="header-img" ><img
                             className="pollImage"
-                            src={user.avatarURL}
+                            src={users[question.author].avatarURL}
                             alt={`Avatar of ${user.name}`}
-                        /></headerImg>
-                        <header><h2>Would you rather</h2></header>
-                        <answer1><span
+                        /></div>
+                        <div className="header"><h2>Would you rather</h2></div>
+                        <div className="answer1"><span
                             id="textSpan"
-                            style={ question.optionOne.votes.includes(user.id)  ? { fontWeight: 'bold' } : { fontWeight: 'normal' } }
-                        >{ question.optionOne.text }</span></answer1>
-                        <answer2><span
+                            style={ question.optionOne.votes.includes(user.id)  ? { fontWeight: 'bold', textDecorationLine: 'underline'} : { fontWeight: 'normal' } }
+                        >{ question.optionOne.text }</span></div>
+                        <div className="answer2"><span
                             id="textSpan"
-                            style={ question.optionTwo.votes.includes(user.id)  ? { fontWeight: 'bold' } : { fontWeight: 'normal' } }
-                        >{ question.optionTwo.text }</span></answer2>
-                        <num1>{numVotesOpOne} votes</num1>
-                        <num2>{numVotesOpTwo} votes</num2>
-                        <per1>{optionOnePercent} percent</per1>
-                        <per2>{optionTwoPercent} percent</per2>
+                            style={ question.optionTwo.votes.includes(user.id)  ? { fontWeight: 'bold', textDecorationLine: 'underline'} : { fontWeight: 'normal' } }
+                        >{ question.optionTwo.text }</span></div>
+                        <div className="num1">{numVotesOpOne} votes</div>
+                        <div className="num2">{numVotesOpTwo} votes</div>
+                        <div className="per1">{optionOnePercent} percent</div>
+                        <div className="per2">{optionTwoPercent} percent</div>
                     </div>
                 </div>
             )
@@ -61,11 +60,10 @@ class QuestionDetailPage extends Component {
                     alignItems: "center"}}>
                     <img
                         className="pollImage"
-                        src={user.avatarURL}
+                        src={users[question.author].avatarURL}
                         alt={`Avatar of ${user.name}`}
                     />
                 </div>
-
                 <h2 style={{
                     display: "flex",
                     justifyContent: "center",
@@ -113,7 +111,6 @@ function mapStateToProps ({authedUser, users, questions},  { id }) {
     return {
         authedUser,
         users,
-        questions,
         question,
         answered,
         user

@@ -1,7 +1,7 @@
 /* Question Detail Page */
 
 .pollButton {
-    backgroundColor: lightgrey;
+    color: lightgrey;
 }
 
 .pollText {
@@ -23,7 +23,7 @@
     grid-template-columns: 20% 20% ;
     margin-left: 30%;
 }
-headerImg {
+.headerImg {
     grid-column-start:1;
     grid-column-end:3;
     grid-row-start:1;
@@ -32,7 +32,7 @@ headerImg {
     display: flex;
 }
 
-header {
+.header {
     grid-column-start:1;
     grid-column-end:3;
     grid-row-start:2;
@@ -40,7 +40,7 @@ header {
     justify-content: center;
     display: flex;
 }
-answer1 {
+.answer1 {
     grid-column-start:1;
     grid-column-end:1;
     grid-row-start:3;
@@ -48,7 +48,7 @@ answer1 {
     justify-content: center;
     display: flex;
 }
-answer2 {
+.answer2 {
     grid-column-start:2;
     grid-column-end:2;
     grid-row-start:3;
@@ -56,7 +56,7 @@ answer2 {
     justify-content: center;
     display: flex;
 }
-num1 {
+.num1 {
     grid-column-start:1;
     grid-column-end:1;
     grid-row-start:4;
@@ -65,7 +65,7 @@ num1 {
     display: flex;
 }
 
-num2 {
+.num2 {
     grid-column-start:2;
     grid-column-end:2;
     grid-row-start:4;
@@ -74,7 +74,7 @@ num2 {
     display: flex;
 }
 
-per1 {
+.per1 {
     grid-column-start:1;
     grid-column-end:1;
     grid-row-start:5;
@@ -83,7 +83,7 @@ per1 {
     display: flex;
 }
 
-per2 {
+.per2 {
     grid-column-start:2;
     grid-column-end:2;
     grid-row-start:5;
@@ -135,7 +135,7 @@ per2 {
     grid-row-end:2;
     justify-content: center;
     display: flex;
-    height: 80%;
+    height: 30px;
 }
 
 #option2Input {
@@ -145,19 +145,47 @@ per2 {
     grid-row-end:3;
     justify-content: center;
     display: flex;
-    height: 80%;
+    height: 30px;
 }
-
-#saveQuestionButton {
-    background-color: lightgrey;
+#saveQuestionLink {
     grid-column-start:1;
     grid-column-end:3;
     grid-row-start:4;
     grid-row-end:4;
     justify-content: center;
     display: flex;
-    height: 80%;
-    width: 50%;
-    margin-left: 25%;
-    padding-top:2%;
+    margin-top: 20px;
 }
+#saveQuestionButton {
+    background-color: lightgrey;
+    height: 40px;
+    width: 200px;
+}
+
+/*Login*/
+
+.welcome_login {
+    grid-column-start:1;
+    grid-column-end:3;
+    justify-content: center;
+    display: flex;
+}
+
+#login_element_1 {
+    margin-top: 10px;
+}
+
+#login_select {
+    height: 40px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+

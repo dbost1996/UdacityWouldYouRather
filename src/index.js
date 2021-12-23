@@ -9,26 +9,26 @@ import reducer from './reducers'
 import middleware from './middleware'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import QuestionDetail from "./components/QuestionDetail";
-import Login from "./components/Login";
 import NewQuestion from "./components/NewQuestion";
 import LoginLocation from "./components/LoginLocation";
+import Error from "./components/Error";
 
 const store = createStore(reducer, middleware)
 
 ReactDOM.render(
     <Provider store={store}>
-    <BrowserRouter>
-        <Routes>
-
-            <Route path="/" element={<App />} >
-                <Route path="login" element={<LoginLocation/>}/>
-                <Route path="" element={<Dashboard />} />
-                <Route path="leaderboard" element={<Leaderboard />} />
-                <Route path="question/:id" element={<QuestionDetail />} />
-                <Route path="add" element={<NewQuestion />} />
-            </Route>
-        </Routes>
-    </BrowserRouter>
+        <BrowserRouter>
+            <Routes>
+                <Route exact path="/" element={<App />} >
+                    <Route exact path="login" element={<LoginLocation/>}/>
+                    <Route exact path="" element={<Dashboard />} />
+                    <Route exact path="leaderboard" element={<Leaderboard />} />
+                    <Route path="question/:id" element={<QuestionDetail />} />
+                    <Route exact path="add" element={<NewQuestion />} />
+                    <Route element={<Error/>} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 )

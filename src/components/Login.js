@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {clearAuthedUser, setAuthedUser} from "../actions/authedUser";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
+import '../index.css'
 
 class Login extends Component {
 
@@ -10,24 +11,21 @@ class Login extends Component {
         lastLocation: PropTypes.object.isRequired,
     }
 
-    toggle = this.toggle.bind(this);
     state = {
         dropdownOpen: false,
         selectedUser: null
     };
-
-    toggle() {
-        this.setState(prevState => ({
-            dropdownOpen: !prevState.dropdownOpen
-        }));
-    }
 
     componentDidMount() {
         this.props.dispatch(clearAuthedUser())
     }
 
     userSelected = function(event) {
-        this.setState({selectedUser:event.target.value});
+        if(event.target.value === "Choose here"){
+            this.setState({selectedUser: null});
+        } else {
+            this.setState({selectedUser:event.target.value});
+        }
     }
 
     login = function(){
@@ -36,42 +34,33 @@ class Login extends Component {
 
 
     render() {
-        const { authedUser, users } = this.props
-        let message='You selected '+ this.state.selectedUser;
-
+        const { users } = this.props
         return (
-
-            <div >
-                <span>Welcome to would you rather</span>
-                <span>Tell us who you are:</span>
-
-
-
-                <p>{message}</p>
-
-                <select  onChange={(event) => this.userSelected(event)}>
-                    <option value="" selected disabled hidden>Choose here</option>
+            <div className='container'>
+                <div className='welcome_login' id="login_element_1">Welcome to would you rather</div>
+                <div className='welcome_login' >Please tell us who you are:</div>
+                <select id="login_select" className='welcome_login' defaultValue={{ label: 2002, value: 2002 }} onChange={(event) => this.userSelected(event)}>
+                    <option>Choose here</option>
                     {Object.keys(users).map(function(key) {
                         return (
-
                            <option value={users[key].id} key={key}>
                                 {users[key].name}
                             </option>
                         );
                     })}
                 </select>
-                <Link to={ this.props.lastLocation.pathname !== '/login' ? this.props.lastLocation.pathname : '/'} disabled={this.state.selectedUser === null} onClick={(event) => this.login(event)}>
-                    Login
+                <Link className='link welcome_login' to={ this.props.lastLocation.pathname !== '/login' ? this.props.lastLocation.pathname : '/'} >
+                    <button disabled={this.state.selectedUser === null} onClick={(event) => this.login(event)}>
+                        Login
+                    </button>
                 </Link>
-
             </div>
         )
     }
 }
 
-function mapStateToProps ({authedUser, users}) {
+function mapStateToProps ({ users }) {
     return {
-        authedUser,
         users
     }
 }

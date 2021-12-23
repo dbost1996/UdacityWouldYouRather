@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../index.css'
-import {handleQuestionAnswer, handleSaveQuestion} from "../actions/shared";
+import { handleSaveQuestion } from "../actions/shared";
 import {Link} from "react-router-dom";
 
 class NewQuestion extends Component {
-
 
     state = {
         input1: '',
@@ -27,11 +26,7 @@ class NewQuestion extends Component {
             input2: event.target.value
         });
     }
-
-
     render() {
-        const { users, questions, authedUser } = this.props
-        let buttonDisable = true;
         return (
             <div className="container">
                 <h2 id="headerNewQuestion">Would you rather</h2>
@@ -43,7 +38,7 @@ class NewQuestion extends Component {
                     Option 2:
                 </div>
                 <input value={this.state.input2} onChange={this.updateInputValue2} id="option2Input" />
-                <Link to="/">
+                <Link  id="saveQuestionLink" className="link" to="/">
                     <button disabled={this.state.input1 === '' || this.state.input2 === ''} onClick={() => this.handleSaveQuestion()}  id="saveQuestionButton">
                     Save Question
                     </button>
@@ -53,11 +48,8 @@ class NewQuestion extends Component {
     }
 }
 
-function mapStateToProps ({ users, questions, authedUser }) {
+function mapStateToProps ({ }) {
     return {
-        users,
-        questions,
-        authedUser
     }
 }
 
